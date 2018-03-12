@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Logging requests for paths separately in nginx</title>
+	
+	<meta name="description" content="">
+	<meta name="image" content="">
+	
+	<meta itemprop="name" content="Logging requests for paths separately in nginx">
+	<meta itemprop="description" content="">
+	<meta itemprop="image" content="">
+	
+	<meta name="og:title" content="Logging requests for paths separately in nginx">
+	<meta name="og:description" content="">
+	
+	<meta name="og:url" content="http://alfreddobradi.github.io/posts/2016-04-13-logging_requests_for_paths_separately_in_nginx/">
+	<meta name="og:site_name" content="Logging requests for paths separately in nginx">
+	<meta name="og:type" content="article">
+	
+	<meta name="article:tag" content="nginx ">
+	<link rel="stylesheet" type="text/css" href="http://alfreddobradi.github.io/css/style.css">
+	
+	
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body>
+
+<header>
+	
+	<a href="http://alfreddobradi.github.io/" style="float: left;color:#777;"><strong>Alfred Dobradi</strong></a>
+	
+	&nbsp;&nbsp;<a href="http://alfreddobradi.github.io/archives/" style="color:#777;"><strong>// Archives</strong></a>&nbsp;&nbsp;<a href="http://alfreddobradi.github.io/about/" style="color:#777;"><strong>// About</strong></a>
+	
+	
+	
+	<a href="http://alfreddobradi.github.io/index.xml" style="color:#777;float: right;"><strong><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></strong></a>
+</header>
+
+
+<div id="loadingMask" style="width: 100%; height: 100%; position: fixed; background: #fff;"></div>
+<script>
+function fadeOut(el) {
+  el.style.opacity = 1;
+
+  var last = +new Date();
+  var tick = function() {
+    el.style.opacity = +el.style.opacity - (new Date() - last) / 80;
+    last = +new Date();
+    
+
+    if (el.style.opacity > 0) {
+      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+    } else {
+      el.style.display='none';
+    }
+  };
+
+  tick();
+}
+
+function ready(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+         el = document.getElementById('loadingMask');
+         fadeOut(el);
+        var elements = document.querySelectorAll("img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("alt")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("alt"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+
+    } else {
+        document.addEventListener('DOMContentLoaded', fn);
+    }
+}
+window.onload = ready;
+</script>
+
+<div class="content">
+  <h1>Logging requests for paths separately in nginx <aside><a href="/tags/nginx/">nginx</a></a>&nbsp;&nbsp;&nbsp;</aside></h1>
+  <p>I needed to log requests for a special path, this seemed like the easiest way. Only works with nginx 1.7 or later.</p>
+
+<p>The reason I’m writing this is simple: I wasted a good 20 minutes figuring out how to do this and it might save the time for someone else.</p>
+
+<p>First off, you’ll need nginx 1.7+ to do this because the if parameter for the access_log directive was added in that version.</p>
+
+<p>Briefly, I needed to log requests with nginx for a Laravel route (let’s call it <strong>/loggable/</strong>) which I’d be able to ship with Logstash to wherever I want to. I’ve created a new log format to only store data I need and that’s where the issues started. First I tried only logging the said route using <strong>access_log</strong> in the <strong>location</strong> directive but because of nginx’s internal redirect when using <strong>try_files</strong> it didn’t seem to work. That’s when I found <strong>access_log</strong>’s <strong>if</strong> parameter and the <strong>map</strong> directive.</p>
+
+<p>Let’s see! First off, you’ll have to create a mapping to decide whether you want to log the request to a different file. That’s fairly easy if you know your way around regular expressions or you have a rule simple enough (it goes in the http section of your config):</p>
+
+<pre><code>map $request_uri $loggable {
+    default 0;
+    ~^/loggable/ 1;
+}
+</code></pre>
+
+<p>This creates a new variable (<strong>$loggable</strong>) for every request with the value of 0 or 1 depending on the url. Now you can use this variable in the if parameter of <em>access_log</em>:</p>
+
+<pre><code>access_log /var/log/nginx/special.access.log combined if=$loggable;
+</code></pre>
+
+<p>Now any requests made to /loggable/* will be logged in the specified file. Don’t forget to add the default access_log to your site config.</p>
+
+</div>
+
+
+
+
+<footer>
+	<p>© 2017-2018, all rights reserved.</a>
+</footer>
+</body>
+</html>
