@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Alfred Dobradi</title>
-    <link>http://alfreddobradi.github.io/</link>
+    <link>https://alfreddobradi.github.io/</link>
     <description>Recent content on Alfred Dobradi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 12 Mar 2018 15:40:19 +0000</lastBuildDate>
     
-        <atom:link href="http://alfreddobradi.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://alfreddobradi.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About</title>
-      <link>http://alfreddobradi.github.io/about/</link>
+      <link>https://alfreddobradi.github.io/about/</link>
       <pubDate>Mon, 12 Mar 2018 15:40:19 +0000</pubDate>
       
-      <guid>http://alfreddobradi.github.io/about/</guid>
+      <guid>https://alfreddobradi.github.io/about/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Archives</title>
-      <link>http://alfreddobradi.github.io/archives/</link>
+      <link>https://alfreddobradi.github.io/archives/</link>
       <pubDate>Mon, 12 Mar 2018 15:02:02 +0000</pubDate>
       
-      <guid>http://alfreddobradi.github.io/archives/</guid>
+      <guid>https://alfreddobradi.github.io/archives/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Logging requests for paths separately in nginx</title>
-      <link>http://alfreddobradi.github.io/posts/2016-04-13-logging_requests_for_paths_separately_in_nginx/</link>
+      <link>https://alfreddobradi.github.io/posts/2016-04-13-logging_requests_for_paths_separately_in_nginx/</link>
       <pubDate>Wed, 13 Apr 2016 12:43:35 +0200</pubDate>
       
-      <guid>http://alfreddobradi.github.io/posts/2016-04-13-logging_requests_for_paths_separately_in_nginx/</guid>
+      <guid>https://alfreddobradi.github.io/posts/2016-04-13-logging_requests_for_paths_separately_in_nginx/</guid>
       <description>&lt;p&gt;I needed to log requests for a special path, this seemed like the easiest way. Only works with nginx 1.7 or later.&lt;/p&gt;
 
 &lt;p&gt;The reason I’m writing this is simple: I wasted a good 20 minutes figuring out how to do this and it might save the time for someone else.&lt;/p&gt;
