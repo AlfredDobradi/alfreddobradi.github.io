@@ -6,10 +6,51 @@
     <description>Recent content in Posts on Alfred Dobradi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Apr 2016 12:43:35 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 13 Mar 2018 10:27:21 +0000</lastBuildDate>
     
         <atom:link href="https://alfreddobradi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2018 03 13_modeling_lives</title>
+      <link>https://alfreddobradi.github.io/posts/2018-03-13_modeling_lives/</link>
+      <pubDate>Tue, 13 Mar 2018 10:27:21 +0000</pubDate>
+      
+      <guid>https://alfreddobradi.github.io/posts/2018-03-13_modeling_lives/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve always been fascinated by models and simulations. Either crude examples or well-crafted almost life-like ones. It&amp;rsquo;s just soothing to think we can actually represent everything with mathematical models in some way or form. Even though I&amp;rsquo;m aware that I lack resources, it&amp;rsquo;s always in the back of my head to just try and create a simulation. It won&amp;rsquo;t be perfect and it probably won&amp;rsquo;t be anything like real life, but it still can be fun and maybe even useful in some way.&lt;/p&gt;
+
+&lt;p&gt;I recently started thinking more and more about this and there are so many things one can take from our behaviour. Even for the starting point, where would you kick things off from? What would you surely include? What drives us to just go for it? These questions have so many answers and they are different for everyone and that&amp;rsquo;s part the beauty. Here&amp;rsquo;s what I&amp;rsquo;m probably going to do, but I challenge you: do you think any of my ideas is flawed or you&amp;rsquo;d do it differently? Contact me! Let&amp;rsquo;s talk!&lt;/p&gt;
+
+&lt;p&gt;There is one thing I&amp;rsquo;d like to state in the beginning: this article is just a sort of doodling around. Throwing ideas into the open. These are all either abstract ideas or they&amp;rsquo;re just a minimalistic representation of overwhelmingly complex concepts like personality, relationship, wants and needs. This is the starting point, everything can be improved, we can even throw things out and rethink them completely!&lt;/p&gt;
+
+&lt;p&gt;The initial concept is very basic. Generate a group of &amp;ldquo;people&amp;rdquo; (people being models of persons) randomly and leave them be. Obviously we need a framework and a program to do so and every trait and behavioral pattern will be simulated. Obviously creating people wouldn&amp;rsquo;t be a huge thing if they were all the same, after all, you are not the same as I am, right? As a first, very basic model of personalities let&amp;rsquo;s create an octagon with the types of personalities as points. To avoid going in too deep, they&amp;rsquo;ll have generic names, A, B, C and so on. If you draw it out you can see that every node has two neighboring nodes, a node that&amp;rsquo;s exactly opposite and two nodes that are neighboring the opposite. If you want to model relationships in an extremely simple way, this can be a way to do so. Let&amp;rsquo;s say the personality we&amp;rsquo;re to examine is &lt;strong&gt;A&lt;/strong&gt;. &lt;strong&gt;A&lt;/strong&gt; has the neighboring nodes &lt;strong&gt;B&lt;/strong&gt; and &lt;strong&gt;H&lt;/strong&gt;, while the opposite point is &lt;strong&gt;E&lt;/strong&gt; and its neighbors are &lt;strong&gt;D&lt;/strong&gt; and &lt;strong&gt;F&lt;/strong&gt;. I&amp;rsquo;ll represent the value of a relationship between nodes with a decimal, for simplicity&amp;rsquo;s sake. If we cut the shape in half on the axis of points &lt;strong&gt;G&lt;/strong&gt; and &lt;strong&gt;C&lt;/strong&gt; we get two halves. As &lt;strong&gt;C&lt;/strong&gt; and &lt;strong&gt;G&lt;/strong&gt; are part of both halves, they can be considered neutral points. The slice that contains &lt;strong&gt;E&lt;/strong&gt; will be the negative area, while the other half can be seen as the positive one. Let&amp;rsquo;s call the center of the octagon &lt;strong&gt;d&lt;/strong&gt; and agree in a few  rules:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Every relationship path has to go through &lt;strong&gt;d&lt;/strong&gt;
+Every time a step in a relationship is pointing &lt;strong&gt;towards d&lt;/strong&gt; we subtract from the value
+Every time a step is pointing &lt;strong&gt;away from d&lt;/strong&gt; we add to the value
+Paths pointing towards neutral points (&lt;strong&gt;G&lt;/strong&gt; and &lt;strong&gt;C&lt;/strong&gt; in this example) are worth 0
+ Paths pointing towards neighbors or neighbors of opposite (&lt;strong&gt;H&lt;/strong&gt;, &lt;strong&gt;B&lt;/strong&gt;, &lt;strong&gt;D&lt;/strong&gt;, &lt;strong&gt;F&lt;/strong&gt; in this example) are worth 0.5
+ Paths pointing towards origin or opposite are worth 1
+ Whether a value is positive or negative depends on the slice they&amp;rsquo;re on (In this example paths pointing to &lt;strong&gt;F&lt;/strong&gt;, &lt;strong&gt;E&lt;/strong&gt;, &lt;strong&gt;D&lt;/strong&gt; are negative.)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Keeping these rules in mind let&amp;rsquo;s determine each relationship (I&amp;rsquo;ll denote relationships just with the points written next to each other, origin first):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AA&lt;/strong&gt; (So an A-type personality&amp;rsquo;s relationship with another A-type personality): From &lt;strong&gt;A&lt;/strong&gt; to &lt;strong&gt;d&lt;/strong&gt; &lt;code&gt;1 - 1 = 0&lt;/code&gt;, from &lt;strong&gt;d&lt;/strong&gt; to &lt;strong&gt;A&lt;/strong&gt; &lt;code&gt;0 + 1 = 1&lt;/code&gt; - simple, right?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AB&lt;/strong&gt;: From &lt;strong&gt;Ad&lt;/strong&gt; is worth 0 as seen above, &lt;strong&gt;dB&lt;/strong&gt; is worth &lt;code&gt;0 + 0.5 = 0.5&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AC&lt;/strong&gt;: Neutral, is worth 0&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AD&lt;/strong&gt;: &lt;strong&gt;Ad&lt;/strong&gt; is 0, &lt;strong&gt;dD&lt;/strong&gt; is &lt;code&gt;0 + ( - 0.5 ) = - 0.5&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AE&lt;/strong&gt;: &lt;strong&gt;Ad&lt;/strong&gt; is 0, &lt;strong&gt;dE&lt;/strong&gt; is &lt;code&gt;0 + ( - 1 ) = -1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AF&lt;/strong&gt; and &lt;strong&gt;AH&lt;/strong&gt; are the same as their logical counterparts (&lt;code&gt;-0.5&lt;/code&gt; and &lt;code&gt;0.5&lt;/code&gt; respectively)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So as we can see we&amp;rsquo;ve created a very crude model of relationships between an even cruder representation of personalities. Whenever we generate random people for our project, we can determine how they&amp;rsquo;ll act towards each other.&lt;/p&gt;
+
+&lt;p&gt;What to expect in the future? Well we can go anywhere from here. We can add separate traits which would make a personality up or we can create several octagons but not with personalities but traits on points so the level of the relationship can be modeled a bit more granularly. The possibilities are literally limitless. And this is only one representation, we don&amp;rsquo;t even have to always assume opposites are going to dislike each other, maybe there&amp;rsquo;s another way of modeling this. If you have any ideas, share!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Logging requests for paths separately in nginx</title>

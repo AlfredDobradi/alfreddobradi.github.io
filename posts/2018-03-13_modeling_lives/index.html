@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>2018 03 13_modeling_lives</title>
+	
+	<meta name="description" content="">
+	<meta name="image" content="">
+	
+	<meta itemprop="name" content="2018 03 13_modeling_lives">
+	<meta itemprop="description" content="">
+	<meta itemprop="image" content="">
+	
+	<meta name="og:title" content="2018 03 13_modeling_lives">
+	<meta name="og:description" content="">
+	
+	<meta name="og:url" content="https://alfreddobradi.github.io/posts/2018-03-13_modeling_lives/">
+	<meta name="og:site_name" content="2018 03 13_modeling_lives">
+	<meta name="og:type" content="article">
+	
+	<meta name="article:tag" content="models simulation ">
+	<link rel="stylesheet" type="text/css" href="https://alfreddobradi.github.io/css/style.css">
+	
+	
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body>
+
+<header>
+	
+	<a href="https://alfreddobradi.github.io/" style="float: left;color:#777;"><strong>Alfred Dobradi</strong></a>
+	
+	&nbsp;&nbsp;<a href="https://alfreddobradi.github.io/archives/" style="color:#777;"><strong>// Archives</strong></a>
+	
+	
+	
+	<a href="https://alfreddobradi.github.io/index.xml" style="color:#777;float: right;"><strong><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></strong></a>
+</header>
+
+
+<div id="loadingMask" style="width: 100%; height: 100%; position: fixed; background: #fff;"></div>
+<script>
+function fadeOut(el) {
+  el.style.opacity = 1;
+
+  var last = +new Date();
+  var tick = function() {
+    el.style.opacity = +el.style.opacity - (new Date() - last) / 80;
+    last = +new Date();
+    
+
+    if (el.style.opacity > 0) {
+      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+    } else {
+      el.style.display='none';
+    }
+  };
+
+  tick();
+}
+
+function ready(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+         el = document.getElementById('loadingMask');
+         fadeOut(el);
+        var elements = document.querySelectorAll("img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("alt")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("alt"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+
+    } else {
+        document.addEventListener('DOMContentLoaded', fn);
+    }
+}
+window.onload = ready;
+</script>
+
+<div class="content">
+  <h1>2018 03 13_modeling_lives <aside><a href="/tags/models/">models</a></a>&nbsp;&nbsp;&nbsp;<a href="/tags/simulation/">simulation</a></a>&nbsp;&nbsp;&nbsp;</aside></h1>
+  <p>I&rsquo;ve always been fascinated by models and simulations. Either crude examples or well-crafted almost life-like ones. It&rsquo;s just soothing to think we can actually represent everything with mathematical models in some way or form. Even though I&rsquo;m aware that I lack resources, it&rsquo;s always in the back of my head to just try and create a simulation. It won&rsquo;t be perfect and it probably won&rsquo;t be anything like real life, but it still can be fun and maybe even useful in some way.</p>
+
+<p>I recently started thinking more and more about this and there are so many things one can take from our behaviour. Even for the starting point, where would you kick things off from? What would you surely include? What drives us to just go for it? These questions have so many answers and they are different for everyone and that&rsquo;s part the beauty. Here&rsquo;s what I&rsquo;m probably going to do, but I challenge you: do you think any of my ideas is flawed or you&rsquo;d do it differently? Contact me! Let&rsquo;s talk!</p>
+
+<p>There is one thing I&rsquo;d like to state in the beginning: this article is just a sort of doodling around. Throwing ideas into the open. These are all either abstract ideas or they&rsquo;re just a minimalistic representation of overwhelmingly complex concepts like personality, relationship, wants and needs. This is the starting point, everything can be improved, we can even throw things out and rethink them completely!</p>
+
+<p>The initial concept is very basic. Generate a group of &ldquo;people&rdquo; (people being models of persons) randomly and leave them be. Obviously we need a framework and a program to do so and every trait and behavioral pattern will be simulated. Obviously creating people wouldn&rsquo;t be a huge thing if they were all the same, after all, you are not the same as I am, right? As a first, very basic model of personalities let&rsquo;s create an octagon with the types of personalities as points. To avoid going in too deep, they&rsquo;ll have generic names, A, B, C and so on. If you draw it out you can see that every node has two neighboring nodes, a node that&rsquo;s exactly opposite and two nodes that are neighboring the opposite. If you want to model relationships in an extremely simple way, this can be a way to do so. Let&rsquo;s say the personality we&rsquo;re to examine is <strong>A</strong>. <strong>A</strong> has the neighboring nodes <strong>B</strong> and <strong>H</strong>, while the opposite point is <strong>E</strong> and its neighbors are <strong>D</strong> and <strong>F</strong>. I&rsquo;ll represent the value of a relationship between nodes with a decimal, for simplicity&rsquo;s sake. If we cut the shape in half on the axis of points <strong>G</strong> and <strong>C</strong> we get two halves. As <strong>C</strong> and <strong>G</strong> are part of both halves, they can be considered neutral points. The slice that contains <strong>E</strong> will be the negative area, while the other half can be seen as the positive one. Let&rsquo;s call the center of the octagon <strong>d</strong> and agree in a few  rules:</p>
+
+<blockquote>
+<p>Every relationship path has to go through <strong>d</strong>
+Every time a step in a relationship is pointing <strong>towards d</strong> we subtract from the value
+Every time a step is pointing <strong>away from d</strong> we add to the value
+Paths pointing towards neutral points (<strong>G</strong> and <strong>C</strong> in this example) are worth 0
+ Paths pointing towards neighbors or neighbors of opposite (<strong>H</strong>, <strong>B</strong>, <strong>D</strong>, <strong>F</strong> in this example) are worth 0.5
+ Paths pointing towards origin or opposite are worth 1
+ Whether a value is positive or negative depends on the slice they&rsquo;re on (In this example paths pointing to <strong>F</strong>, <strong>E</strong>, <strong>D</strong> are negative.)</p>
+</blockquote>
+
+<p>Keeping these rules in mind let&rsquo;s determine each relationship (I&rsquo;ll denote relationships just with the points written next to each other, origin first):</p>
+
+<ul>
+<li><strong>AA</strong> (So an A-type personality&rsquo;s relationship with another A-type personality): From <strong>A</strong> to <strong>d</strong> <code>1 - 1 = 0</code>, from <strong>d</strong> to <strong>A</strong> <code>0 + 1 = 1</code> - simple, right?</li>
+<li><strong>AB</strong>: From <strong>Ad</strong> is worth 0 as seen above, <strong>dB</strong> is worth <code>0 + 0.5 = 0.5</code></li>
+<li><strong>AC</strong>: Neutral, is worth 0</li>
+<li><strong>AD</strong>: <strong>Ad</strong> is 0, <strong>dD</strong> is <code>0 + ( - 0.5 ) = - 0.5</code></li>
+<li><strong>AE</strong>: <strong>Ad</strong> is 0, <strong>dE</strong> is <code>0 + ( - 1 ) = -1</code></li>
+<li><strong>AF</strong> and <strong>AH</strong> are the same as their logical counterparts (<code>-0.5</code> and <code>0.5</code> respectively)</li>
+</ul>
+
+<p>So as we can see we&rsquo;ve created a very crude model of relationships between an even cruder representation of personalities. Whenever we generate random people for our project, we can determine how they&rsquo;ll act towards each other.</p>
+
+<p>What to expect in the future? Well we can go anywhere from here. We can add separate traits which would make a personality up or we can create several octagons but not with personalities but traits on points so the level of the relationship can be modeled a bit more granularly. The possibilities are literally limitless. And this is only one representation, we don&rsquo;t even have to always assume opposites are going to dislike each other, maybe there&rsquo;s another way of modeling this. If you have any ideas, share!</p>
+
+</div>
+
+
+
+
+<footer>
+	<p>© 2017-2018, all rights reserved.</a>
+</footer>
+</body>
+</html>
