@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Open+Sans+Condensed:wght@300;700&display=swap");
+body {
+  background: #020202;
+  color: #A3FCF4;
+  font-family: "Cutive Mono";
+  font-weight: 400;
+  font-size: 20px;
+}
+body h1 {
+  margin: 0;
+  padding: 10px 0;
+  color: #FFBAFF;
+  font-family: "Open Sans Condensed";
+  font-weight: 700;
+}
+body h3 {
+  font-size: 32px;
+  color: #FFBAFF;
+  font-family: "Open Sans Condensed";
+  font-weight: 300;
+  margin: 30px 0 5px;
+}
+body span.separator {
+  color: #FFBAFF;
+}
+body a {
+  color: #FFBAFF;
+  text-decoration: none;
+}
+body a.nav-item {
+  text-transform: uppercase;
+}
+body a.nav-item::before {
+  content: "//";
+  padding: 0 5px 0 0;
+}
+body a.nav-item.active::before {
+  color: #A3FCF4;
+}
+body a:visited {
+  color: #FFBAFF;
+}
+body a:hover {
+  color: #FF9EFF;
+}
+body header {
+  padding: 0 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+body main {
+  width: 960px;
+  margin: 0 auto;
+}
+body main div.meta {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: left;
+  border: none;
+  border-bottom: 1px solid #FFBAFF;
+  margin-bottom: 5px;
+}
+body main div.meta h3 {
+  padding: 0 20px 0 0;
+}
+body ul.pagination {
+  font-size: 26px;
+  margin: 30px 0 0;
+  font-family: "Open Sans Condensed";
+  font-weight: 300;
+  list-style-type: none;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+body ul.pagination li {
+  width: 30%;
+  text-align: center;
+}
