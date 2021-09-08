@@ -1,0 +1,3 @@
+[submodule "themes/neominimal"]
+	path = themes/neominimal
+	url = git@github.com:AlfredDobradi/neominimal.git

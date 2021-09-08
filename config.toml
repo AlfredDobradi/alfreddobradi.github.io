@@ -1,0 +1,15 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Bury Moneylow'
+paginate = 5
+
+[menu]
+[[menu.main]]
+    identifier = "home"
+    url = "/"
+    name = "Home"
+    weight = -300
+
+[module]
+[[module.imports]]
+    path = "neominimal"
