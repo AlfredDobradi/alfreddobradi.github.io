@@ -1,0 +1,39 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1"><title>Creating a Debian virtual machine with Qemu on macOS | Alfred Dobradi</title><link rel=stylesheet type=text/css href=/css/normalize.css>
+<link rel=stylesheet type=text/css href=/css/neominimal.css>
+</head>
+<body>
+<header>
+<h1>Alfred Dobradi</h1>
+<nav>
+<a class=nav-item href=/ title>Home</a>
+<a class="nav-item active" href=/posts/ title=Posts>Posts</a>
+<a class=nav-item href=/about/ title=About>About</a>
+</nav>
+</header>
+<div class=content>
+<main class=single>
+<h3>Creating a Debian virtual machine with Qemu on macOS</h3>
+<div class=content>
+<p>I have to admit, I haven&rsquo;t used VMs a lot in the last 5+ years or at least not directly. I&rsquo;ve been using Docker for a long time and my limited exposure to VMs were through Vagrant at my old job. The reason I dug up how to run a Debian VM using Qemu is simple: I needed a Debian VM and VirtualBox is just too damn heavy. I only needed a lightweight Debian installation to play around with eBPF and Go.
+To be perfectly honest, getting this to work was super easy even on macOS. Obviously KVM is not a thing, but you don&rsquo;t even need it despite some articles having some KVM command ran to boot up the machine. Without further ado, let&rsquo;s get to it.</p>
+<p>You&rsquo;re gonna need a few things to start the process. First of all, you&rsquo;ll need <code>qemu</code> and of course a Debian installer image. Fortunately both are very easy to obtain, you can install <code>qemu</code> by running the following command in your terminal (assuming you have Homebrew installed):</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ brew install qemu
+</code></pre></div><p>Then we&rsquo;ll create a directory and grab the Debian image (Make sure you get the version you want, this is the latest stable one by the time of writing. You should also verify the image checksums.):</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ mkdir debian-virtual <span style=color:#f92672>&amp;&amp;</span> cd $_
+$ wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-11.0.0-amd64-netinst.iso
+</code></pre></div><p>Now that&rsquo;s done, we&rsquo;ll switching gears as we&rsquo;re only 3 commands and some waiting away from a running VM! Let&rsquo;s create the virtual disk for the machine we can install Debian on:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ qemu-img create -f qcow2 virtualdebian.img 20G
+</code></pre></div><p>This shouldn&rsquo;t take long at all and once we&rsquo;re done with that we can boot into the installer (you can use the <code>-m</code> and <code>-smp</code> flags to change memory and CPU for the VM):</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ qemu-system-x86_64 -hda virtualdebian.img -cdrom debian-11.0.0-amd64-netinst.iso -boot d -m <span style=color:#ae81ff>2048</span>
+</code></pre></div><p>If everything went well you should see the boot menu of the Debian installer. I&rsquo;d assume this part doesn&rsquo;t need explanation, so just install Debian the way you want on the virtual disk. Once that&rsquo;s done, you can launch your new VM with this command:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ qemu-system-x86_64 -hda virtualdebian.img -m <span style=color:#ae81ff>2048</span> -smp <span style=color:#ae81ff>2</span>
+</code></pre></div><p>And there we go, we didn&rsquo;t need KVM or any special flags, just Qemu and a Debian image!</p>
+</div>
+</main>
+</div>
+</body>
+</html>
