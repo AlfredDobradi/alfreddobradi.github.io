@@ -2,7 +2,7 @@
 title: "Creating a Debian virtual machine with Qemu on macOS"
 date: 2021-09-08T11:41:55+01:00
 publishdate: 2021-09-08T11:41:55+01:00
-draft: true
+draft: false
 ---
 I have to admit, I haven't used VMs a lot in the last 5+ years or at least not directly. I've been using Docker for a long time and my limited exposure to VMs were through Vagrant at my old job. The reason I dug up how to run a Debian VM using Qemu is simple: I needed a Debian VM and VirtualBox is just too damn heavy. I only needed a lightweight Debian installation to play around with eBPF and Go.<!-- more -->
 To be perfectly honest, getting this to work was super easy even on macOS. Obviously KVM is not a thing, but you don't even need it despite some articles having some KVM command ran to boot up the machine. Without further ado, let's get to it.
