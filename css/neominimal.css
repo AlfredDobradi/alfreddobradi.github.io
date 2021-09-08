@@ -68,6 +68,28 @@ body main div.meta {
 body main div.meta h3 {
   padding: 0 20px 0 0;
 }
+body main div.content p code {
+  font-family: "Cutive Mono";
+  font-weight: 400;
+  font-size: 20px;
+  color: #FFBAFF;
+}
+body main div.content p code::before {
+  content: "`";
+}
+body main div.content p code::after {
+  content: "`";
+}
+body main div.highlight {
+  padding: 0 15px;
+}
+body main div.highlight pre {
+  border-radius: 5px;
+  padding: 10px 10px 12px;
+}
+body main div.highlight pre code {
+  font-size: 13px;
+}
 body ul.pagination {
   font-size: 26px;
   margin: 30px 0 0;
@@ -83,4 +105,14 @@ body ul.pagination {
 body ul.pagination li {
   width: 30%;
   text-align: center;
+}
+body footer {
+  width: 100%;
+  text-align: center;
+  margin: 50px 0 15px;
+}
+body footer hr {
+  border: none;
+  border-top: 1px solid #A3FCF4;
+  width: 300px;
 }
