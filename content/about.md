@@ -5,7 +5,7 @@ publishdate: 2021-09-08T08:12:50+01:00
 draft: false
 menu:
     main:
-        weight: 200
+        weight: 300
 ---
 
 My name is Alfred Dobradi, welcome to my crib. This is hopefully going to be my new personal blog I'll push on Github and all that. Seeing how all my previous efforts of writing a blog led nowhere really, I'm a bit skeptical about this but sure look, hope springs eternal.

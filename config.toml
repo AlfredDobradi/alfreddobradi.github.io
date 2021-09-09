@@ -9,7 +9,15 @@ paginate = 5
     url = "/"
     name = "Home"
     weight = -300
+[[menu.main]]
+    identifier = "topics"
+    url = "/topics"
+    name = "Topics"
+    weight = 200
 
 [module]
 [[module.imports]]
     path = "neominimal"
+
+[taxonomies]
+    topic = 'topics'
