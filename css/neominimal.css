@@ -68,6 +68,12 @@ body main div.meta {
 body main div.meta h3 {
   padding: 0 20px 0 0;
 }
+body main div.topics a::after {
+  content: ",";
+}
+body main div.topics a:last-child::after {
+  content: "";
+}
 body main div.content p code {
   font-family: "Cutive Mono";
   font-weight: 400;
@@ -79,6 +85,12 @@ body main div.content p code::before {
 }
 body main div.content p code::after {
   content: "`";
+}
+body main div.taxonomy ul {
+  list-style-type: none;
+}
+body main div.taxonomy ul li::before {
+  content: "- ";
 }
 body main div.highlight {
   padding: 0 15px;

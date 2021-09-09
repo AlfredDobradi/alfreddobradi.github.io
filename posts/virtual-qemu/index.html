@@ -11,12 +11,23 @@
 <nav>
 <a class=nav-item href=/ title>Home</a>
 <a class="nav-item active" href=/posts/ title=Posts>Posts</a>
+<a class=nav-item href=/topics title>Topics</a>
 <a class=nav-item href=/about/ title=About>About</a>
 </nav>
 </header>
 <div class=content>
 <main class=single>
-<h3>Creating a Debian virtual machine with Qemu on macOS</h3>
+<div class=meta>
+<h3 class=title>Creating a Debian virtual machine with Qemu on macOS</h3>
+<time>Sep 8, 2021</time>
+</div>
+<div class=topics>
+topics:
+<a href=http://example.org/topics/tech>tech</a>
+<a href=http://example.org/topics/debian>debian</a>
+<a href=http://example.org/topics/virtualization>virtualization</a>
+<a href=http://example.org/topics/qemu>qemu</a>
+</div>
 <div class=content>
 <p>I have to admit, I haven&rsquo;t used VMs a lot in the last 5+ years or at least not directly. I&rsquo;ve been using Docker for a long time and my limited exposure to VMs were through Vagrant at my old job. The reason I dug up how to run a Debian VM using Qemu is simple: I needed a Debian VM and VirtualBox is just too damn heavy. I only needed a lightweight Debian installation to play around with eBPF and Go.
 To be perfectly honest, getting this to work was super easy even on macOS. Obviously KVM is not a thing, but you don&rsquo;t even need it despite some articles having some KVM command ran to boot up the machine. Without further ado, let&rsquo;s get to it.</p>
