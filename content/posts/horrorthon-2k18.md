@@ -2,7 +2,7 @@
 title: "Horrorthon 2k18"
 date: 2021-09-16T00:28:09+01:00
 publishdate: 2018-11-08T00:28:09+01:00
-draft: true
+draft: false
 ---
 
 Judging by the great fun I had at last year’s Horrorthon, I was pretty sure I’d get the 5 day pass as soon as they announce them. I have to say it was a long wait but it was worth it. Altogether the lineup was very solid, there were no movies I didn’t enjoy - there weren’t too much last year either anyway - and the Q&As and presentation were also very enjoyable. I won’t write tons about the movies, just a very brief review but I intend to go over every movie I’ve seen in order.
