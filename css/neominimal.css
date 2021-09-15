@@ -86,6 +86,15 @@ body main div.content p code::before {
 body main div.content p code::after {
   content: "`";
 }
+body main div.content h3 {
+  font-size: 26px;
+  font-family: "Open Sans Condensed";
+  font-weight: 300;
+}
+body main div.content h4 {
+  font-size: 20px;
+  margin: 20px 0 0;
+}
 body main div.taxonomy ul {
   list-style-type: none;
 }
